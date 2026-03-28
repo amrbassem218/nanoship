@@ -1,8 +1,10 @@
-import Link from "next/link";
+import Faq from "~/components/faq";
 import HeroEmailRegister from "~/components/heroEmailRegister";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
-
+import {
+  CollapsibleTrigger,
+  CollapsibleContent,
+  Collapsible,
+} from "~/components/ui/collapsible";
 export default function HomePage() {
   const HOW_IT_WORKS = [
     "Build a software. Make it small.",
@@ -28,7 +30,7 @@ export default function HomePage() {
   ];
   return (
     <div className="relative">
-      <div className="z-50 mx-auto flex w-120 flex-col items-center space-y-8">
+      <div className="z-50 mx-auto flex w-120 flex-col items-center space-y-8 py-8">
         {/* Header */}
         <div className="w-full">
           {/* TODO: Change logo */}
@@ -98,7 +100,9 @@ export default function HomePage() {
             <ul className="list-inside list-disc">
               {PRIZES.map((prize, i) => {
                 return i % 2 == 0 ? (
-                  <li className="truncate">{prize}</li>
+                  <li className="truncate" key={i}>
+                    {prize}
+                  </li>
                 ) : (
                   <></>
                 );
@@ -107,7 +111,9 @@ export default function HomePage() {
             <ul className="list-inside list-disc">
               {PRIZES.map((prize, i) => {
                 return i % 2 != 0 ? (
-                  <li className="truncate">{prize}</li>
+                  <li className="truncate" key={i}>
+                    {prize}
+                  </li>
                 ) : (
                   <></>
                 );
@@ -120,6 +126,9 @@ export default function HomePage() {
             <img src={"/bottom_right_edge.png"} className="h-4 w-4" />
           </div>
         </div>
+
+        {/* FAQ */}
+        <Faq />
       </div>
 
       {/* bg */}
