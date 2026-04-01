@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import {
   CollapsibleTrigger,
   CollapsibleContent,
@@ -36,6 +37,7 @@ function Faq({}: Props) {
         "Absolutely, just RSVP for now and join #nanoship channel. You can ask your questions there",
     },
   ];
+  const [openedFaq, setOpenedFaq] = useState<number | null>(null);
   return (
     <div className="w-full">
       {/* Header */}
@@ -48,16 +50,27 @@ function Faq({}: Props) {
         {FAQ.map((ques, i) => (
           <div className="w-full">
             {i > 0 && <Separator className="bg-muted-foreground my-3" />}
-            <Collapsible key={i} className="w-full">
+            <Collapsible
+              key={i}
+              className="w-full space-y-2"
+              open={openedFaq === i}
+              onOpenChange={(e) => (e ? setOpenedFaq(i) : setOpenedFaq(null))}
+            >
               <CollapsibleTrigger className="flex w-full cursor-pointer items-center justify-between">
                 <div className="space-x-3">
                   {/* TODO: Change for ASCII arrow */}
-                  <span className="text-xl">{">"}</span>
+                  <span
+                    className={`inline-block ${openedFaq === i && "rotate-90"} transform`}
+                  >
+                    {">"}
+                  </span>
                   <span>{ques.question}</span>
                 </div>
                 <span className="text-xl">+</span>
               </CollapsibleTrigger>
-              <CollapsibleContent>{ques.answer}</CollapsibleContent>
+              <CollapsibleContent className="mx-3">
+                <span className="text-text/80">{ques.answer}</span>
+              </CollapsibleContent>
             </Collapsible>
           </div>
         ))}
