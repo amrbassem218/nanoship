@@ -47,15 +47,15 @@ export default function HomePage() {
         {/* Registery  */}
         <div className="w-full space-y-2">
           <div className="space-y-1">
-            <span className="">Ends in April 31st, 2026</span>
+            <span className="">Starts in April 31st, 2026</span>
             <HeroEmailRegister />
             <span className="text-muted-foreground text-sm">
               For high schoolers aged 13-18.
             </span>
           </div>
-          <div className="flex w-full justify-center">
-            <span className="underline">Already have an account? Log in</span>
-          </div>
+          {/* <div className="flex w-full justify-center"> */}
+          {/*   <span className="underline">Already have an account? Log in</span> */}
+          {/* </div> */}
         </div>
 
         {/* How this works */}
@@ -133,7 +133,19 @@ export default function HomePage() {
 
       {/* bg */}
       <div className="pointer-events-none absolute top-0 left-0 z-1 w-full">
-        <video autoPlay loop muted className="w-full opacity-7">
+        <video
+          autoPlay
+          loop
+          muted
+          className="w-full opacity-7"
+          style={{
+            height: "100vh",
+            objectFit: "cover",
+            position: "fixed",
+            top: 0,
+            left: 0,
+          }}
+        >
           <source src="/bg.webm" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

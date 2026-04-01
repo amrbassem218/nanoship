@@ -39,7 +39,7 @@ function Faq({}: Props) {
   ];
   const [openedFaq, setOpenedFaq] = useState<number | null>(null);
   return (
-    <div className="w-full">
+    <div className="w-full space-y-3">
       {/* Header */}
       <div className="flex items-start gap-1 text-lg font-bold">
         {/* TODO: Replace with ASCII arrow art */}

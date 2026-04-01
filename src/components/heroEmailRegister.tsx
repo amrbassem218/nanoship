@@ -21,7 +21,7 @@ function HeroEmailRegister({}: Props) {
           type="submit"
           className="border-bg h-full w-full rounded-none border-2"
         >
-          Sign up
+          RSVP
         </Button>
       </div>
     </form>
