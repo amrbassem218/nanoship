@@ -132,7 +132,7 @@ export default function HomePage() {
       </div>
 
       {/* bg */}
-      <div className="absolute top-0 left-0 z-1 w-full">
+      <div className="pointer-events-none absolute top-0 left-0 z-1 w-full">
         <video autoPlay loop muted className="w-full opacity-7">
           <source src="/bg.webm" type="video/mp4" />
           Your browser does not support the video tag.

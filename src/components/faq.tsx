@@ -4,6 +4,7 @@ import {
   CollapsibleContent,
   Collapsible,
 } from "./ui/collapsible";
+import { Separator } from "./ui/separator";
 
 type Props = {};
 
@@ -43,12 +44,24 @@ function Faq({}: Props) {
         <span>{">>:"}</span>
         <h1 className="">FAQ</h1>
       </div>
-      {FAQ.map((ques, i) => (
-        <Collapsible key={i}>
-          <CollapsibleTrigger>{ques.question}</CollapsibleTrigger>
-          <CollapsibleContent>{ques.answer}</CollapsibleContent>
-        </Collapsible>
-      ))}
+      <div>
+        {FAQ.map((ques, i) => (
+          <div className="w-full">
+            {i > 0 && <Separator className="bg-muted-foreground my-3" />}
+            <Collapsible key={i} className="w-full">
+              <CollapsibleTrigger className="flex w-full cursor-pointer items-center justify-between">
+                <div className="space-x-3">
+                  {/* TODO: Change for ASCII arrow */}
+                  <span className="text-xl">{">"}</span>
+                  <span>{ques.question}</span>
+                </div>
+                <span className="text-xl">+</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent>{ques.answer}</CollapsibleContent>
+            </Collapsible>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
