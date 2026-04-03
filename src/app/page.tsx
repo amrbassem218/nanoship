@@ -131,6 +131,18 @@ export default function HomePage() {
         <Faq />
       </div>
 
+      <footer className="text-muted-foreground my-5 flex flex-col text-center">
+        <span>CREDITS:</span>
+        <span className="">
+          The design style & fonts are fully inspired from{" "}
+          <a
+            href="https://stasis.hackclub.com/"
+            className="text-blue-400 underline"
+          >
+            Hackclub statis
+          </a>
+        </span>
+      </footer>
       {/* bg */}
       <div className="pointer-events-none absolute top-0 left-0 z-1 w-full">
         <video
